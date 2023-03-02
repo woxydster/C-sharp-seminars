@@ -16,24 +16,6 @@ int Prompt(string message)                  // Метод ввода числа 
     return readNumber;
 }
 
-// ------------Решение через цикл while-----------
-//
-// TableOfSquares(number);
-//
-// void TableOfSquares(int num)
-// {
-//     int index = 1;
-//     while (index <= num)
-//     {
-//         Console.WriteLine($"{index,5} - {index * index,5}");
-//         index++;
-//     }
-// }
-
-
-
-// -----------Решение через цикл for---------------
-//
 if (number > 0) TableOfCubes(number);
 else Console.WriteLine("Ошибка ввода. Введите натуральное число.");
 
