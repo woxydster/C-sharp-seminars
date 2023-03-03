@@ -6,7 +6,7 @@
 
 
 int arrayElements = Prompt("Введите количество элементов массива ");
-int[] array = FillArray(arrayElements);
+int[] array = FillArray(arrayElements,0,1);
 PrintArray(array);
 
 int Prompt(string message)                  // Метод ввода числа int
@@ -16,12 +16,13 @@ int Prompt(string message)                  // Метод ввода числа 
     return readNumber;
 }
 
-int[] FillArray(int arg)
+int[] FillArray(int arg,int min,int max)
 {
+    Random rand = new Random();
     int[] arr = new int[arg];
     for (int i = 0; i < arg; i++)
     {
-        arr[i] = new Random().Next(0, 2);
+        arr[i] = rand.Next(min, max+1);
     }
     return arr;
 }
