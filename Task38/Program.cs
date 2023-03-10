@@ -3,18 +3,18 @@
 
 // [3.5, 7.1, 22.9, 2.3, 78.5] -> 76.2
 
-int[] CreatArrayRndInt(int size, int min, int max)
+double[] CreatArrayRndInt(int size, int min, int max)
 {
     Random rnd = new Random();
-    int[] arr = new int[size];
+    double[] arr = new double[size];
     for (int i = 0; i < arr.Length; i++)
     {
-        arr[i] = rnd.Next(min, max + 1);
+        arr[i] = Math.Round(rnd.NextDouble() * (max - min) + min,1,MidpointRounding.ToZero);
     }
     return arr;
 }
 
-void PrintArray(int[] arr)
+void PrintArray(double[] arr)
 {
     Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
@@ -25,34 +25,35 @@ void PrintArray(int[] arr)
     Console.Write("]");
 }
 
-int DifferenceBetweenMinAndMax (int minElement,int maxElement)
+double DifferenceBetweenMinAndMax(double minElement, double maxElement)
 {
-    int difference = maxElement-minElement;
+    double difference = maxElement - minElement;
     return difference;
 }
 
-int FindMinValue (int[] arr)
+double FindMinValue(double[] arr)
 {
-    int minElement = arr[0];
+    double minElement = arr[0];
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i] < minElement) minElement= arr[i];
+        if (arr[i] < minElement) minElement = arr[i];
     }
     return minElement;
 }
 
-int FindMaxValue (int[] arr)
+double FindMaxValue(double[] arr)
 {
-    int maxElement = arr[0];
+    double maxElement = arr[0];
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i] > maxElement) maxElement= arr[i];
+        if (arr[i] > maxElement) maxElement = arr[i];
     }
     return maxElement;
 }
-int[] array = CreatArrayRndInt(5, 1, 9);
-int resultMin = FindMinValue(array);
-int resultMax = FindMaxValue(array);
+// double[] array = CreatArrayRndInt(5, 1, 9);
+double[]array = {3.5, 7.1, 22.9, 2.3, 78.5};
+double resultMin = Math.Round(FindMinValue(array),1,MidpointRounding.ToZero);
+double resultMax = Math.Round(FindMaxValue(array),1,MidpointRounding.ToZero);
 PrintArray(array);
 Console.WriteLine($" - > Минимальное значение элемента массива = {resultMin}, Максимальное значение элемента = {resultMax}. ");
-Console.WriteLine($"Разница между максимальным и минимальным элементами массива равна {DifferenceBetweenMinAndMax(resultMin,resultMax)}.");
+Console.WriteLine($"Разница между максимальным и минимальным элементами массива равна {DifferenceBetweenMinAndMax(resultMin, resultMax)}.");
