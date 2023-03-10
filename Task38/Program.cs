@@ -50,8 +50,7 @@ double FindMaxValue(double[] arr)
     }
     return maxElement;
 }
-// double[] array = CreatArrayRndInt(5, 1, 9);
-double[]array = {3.5, 7.1, 22.9, 2.3, 78.5};
+double[] array = CreatArrayRndInt(100, 1, 90);
 double resultMin = Math.Round(FindMinValue(array),1,MidpointRounding.ToZero);
 double resultMax = Math.Round(FindMaxValue(array),1,MidpointRounding.ToZero);
 PrintArray(array);
